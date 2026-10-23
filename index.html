@@ -11,9 +11,9 @@
     #hint, #info {
       position: fixed; left: 50%; transform: translateX(-50%);
       z-index: 10; padding: 10px 14px; border-radius: 10px;
-      color: #fff; text-align: center; max-width: 90%;
+      color: #fff; max-width: 90%;
     }
-    #hint { top: 10px; background: rgba(0,0,0,.6); font-size: 14px; }
+    #hint { top: 10px; background: rgba(0,0,0,.6); font-size: 14px; text-align: center; }
     #info { bottom: 15px; background: rgba(0,60,120,.85); font-size: 15px;
             text-align: left; display: none; line-height: 1.4; }
   </style>
@@ -32,11 +32,24 @@
            arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
 
     <a-marker preset="hiro" id="marker">
-      <a-box position="0 0.15 0" width="1.6" height="0.3" depth="0.7" color="#455a64"></a-box>
-      <a-box position="-0.6 0.55 0" width="0.4" height="0.5" depth="0.5" color="#1976d2"></a-box>
-      <a-cylinder position="-0.25 0.6 0" rotation="0 0 90" radius="0.12" height="0.5" color="#b0bec5"
-                  animation="property: rotation; to: 360 0 90; loop: true; dur: 2000; easing: linear"></a-cylinder>
-      <a-box position="0.55 0.45 0" width="0.3" height="0.3" depth="0.3" color="#e53935"></a-box>
+      <!-- станина -->
+      <a-box position="0 0.05 0" width="1.0" height="0.1" depth="0.4" color="#455a64"></a-box>
+      <!-- передняя бабка -->
+      <a-box position="-0.38 0.25 0" width="0.22" height="0.3" depth="0.34" color="#1976d2"></a-box>
+      <!-- патрон с кулачком (вращается) -->
+      <a-entity position="-0.2 0.27 0"
+                animation="property: rotation; to: 360 0 0; loop: true; dur: 3000; easing: linear">
+        <a-cylinder rotation="0 0 90" radius="0.1" height="0.06" color="#90a4ae"></a-cylinder>
+        <a-box position="0 0.08 0" width="0.05" height="0.05" depth="0.05" color="#e53935"></a-box>
+      </a-entity>
+      <!-- заготовка -->
+      <a-cylinder position="0.01 0.27 0" rotation="0 0 90" radius="0.04" height="0.36" color="#cfd8dc"></a-cylinder>
+      <!-- суппорт и резцедержатель -->
+      <a-box position="0.05 0.14 0.12" width="0.2" height="0.08" depth="0.14" color="#ffb300"></a-box>
+      <a-box position="0.05 0.21 0.06" width="0.05" height="0.06" depth="0.05" color="#6d4c41"></a-box>
+      <!-- задняя бабка и пиноль -->
+      <a-box position="0.38 0.2 0" width="0.15" height="0.2" depth="0.25" color="#e53935"></a-box>
+      <a-cylinder position="0.25 0.27 0" rotation="0 0 90" radius="0.025" height="0.12" color="#b0bec5"></a-cylinder>
     </a-marker>
 
     <a-entity camera></a-entity>
